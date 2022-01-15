@@ -16,16 +16,16 @@ using System.Windows.Shapes;
 namespace Personas
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para UserControl1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewPerson : UserControl
     {
-        MainWindowVM vm;
+        private NewPersonVM vm;
 
-        public MainWindow()
+        public NewPerson()
         {
             InitializeComponent();
-            vm = new MainWindowVM();
+            vm = new NewPersonVM();
             this.DataContext = vm;
         }
     }

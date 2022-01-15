@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,23 +11,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Personas
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para DialogoNacionalidad.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DialogoNacionalidad : Window
     {
-        MainWindowVM vm;
+        public RelayCommand Cerrar { get; }
 
-        public MainWindow()
+        public DialogoNacionalidad()
         {
             InitializeComponent();
-            vm = new MainWindowVM();
-            this.DataContext = vm;
+            Cerrar = new RelayCommand(CerrarDialogo);
+            this.DataContext = this;
+        }
+
+        private void CerrarDialogo()
+        {
+            this.Close();
         }
     }
 }
