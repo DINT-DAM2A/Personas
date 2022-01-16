@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Personas
 {
     class ServicioNavegacion
     {
+        private UserControl ListPersons;
 
         public ServicioNavegacion()
         {
@@ -20,10 +16,21 @@ namespace Personas
             return new NewPerson();
         }
 
+        internal UserControl AbrirListPersons()
+        {
+            if (ListPersons == null)
+            {
+                ListPersons = new ListPersons();
+            }
+
+            return ListPersons;
+        }
+
         public bool? AbrirDialogoNacionalidad()
         {
             DialogoNacionalidad ventana = new DialogoNacionalidad();
             ventana.Owner = Application.Current.MainWindow;
+
             return ventana.ShowDialog();
         }
 

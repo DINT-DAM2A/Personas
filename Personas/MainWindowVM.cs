@@ -1,11 +1,6 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System.Windows.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Personas
 {
@@ -14,13 +9,13 @@ namespace Personas
         public RelayCommand NewPersonCommand { get; }
         public RelayCommand ListPersonsCommand { get; }
 
-        private ServicioNavegacion servicio;
+        private readonly ServicioNavegacion servicio;
 
         public MainWindowVM()
         {
             servicio = new ServicioNavegacion();
             NewPersonCommand = new RelayCommand(AbrirNewPerson);
-
+            ListPersonsCommand = new RelayCommand(AbrirListPersons);
         }
 
         private UserControl ventanaVisible;
@@ -36,5 +31,9 @@ namespace Personas
             VentanaVisible = servicio.AbrirNewPerson();
         }
 
+        private void AbrirListPersons()
+        {
+            VentanaVisible = servicio.AbrirListPersons();
+        }
     }
 }
