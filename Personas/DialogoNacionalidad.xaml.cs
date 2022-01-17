@@ -8,18 +8,15 @@ namespace Personas
     /// </summary>
     public partial class DialogoNacionalidad : Window
     {
-        public RelayCommand Cerrar { get; }
 
         public DialogoNacionalidad()
         {
             InitializeComponent();
-            Cerrar = new RelayCommand(CerrarDialogo);
-            this.DataContext = this;
         }
 
-        private void CerrarDialogo()
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            DialogResult = true;
         }
     }
 }
